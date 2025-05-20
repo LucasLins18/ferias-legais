@@ -1,0 +1,142 @@
+/* === Estilo Global da Página === */
+body {
+  font-family: Arial, sans-serif;
+  background: #e6f0fa;                     /* Fundo azul-claro institucional */
+  color: #003366;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* === Cabeçalho === */
+header {
+  background: #005fa3;                     /* Azul forte para destaque */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+header p.frase {
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* === Menu de Navegação com Ícones e Hover Suave === */
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+header nav a:hover {
+  color: #ffd700;                          /* Dourado suave no hover */
+  transform: translateY(-2px);
+}
+
+/* === Área Principal === */
+main {
+  background: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1 0 auto;
+}
+
+/* === Tabelas === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+table th {
+  background: #0077cc;
+  color: white;
+}
+
+/* === Formulários === */
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+form input,
+form button,
+form select,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* === Botões Personalizados (fora do Bootstrap) === */
+form button {
+  background-color: #005fa3;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #004080;
+}
+
+/* === Rodapé fixo e responsivo === */
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background: #f8f9fa;
+  color: #555;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  padding: 20px 0;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #005fa3;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #003366;
+}

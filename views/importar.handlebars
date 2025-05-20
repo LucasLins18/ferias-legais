@@ -1,0 +1,21 @@
+<h2 class="mb-4">Importar Planilha Excel</h2>
+
+<p class="text-muted">Utilize o botão abaixo para importar uma planilha <strong>.xlsx</strong> com os dados de férias.</p>
+<form action="/upload-excel" method="POST" enctype="multipart/form-data" class="row g-3">
+  <div class="col-md-8">
+    <input type="file" name="file" class="form-control" accept=".xlsx" required>
+  </div>
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-primary w-100">📥 Importar</button>
+  </div>
+</form>
+
+<hr>
+<h5>Modelo Esperado:</h5>
+<ul>
+  <li><strong>Coluna A</strong>: ID (opcional)</li>
+  <li><strong>Coluna B</strong>: Nome do RH</li>
+  <li><strong>Coluna C</strong>: Nome do Funcionário</li>
+  <li><strong>Coluna D</strong>: Salário</li>
+</ul>
+<p class="text-muted">Certifique-se de que a aba do Excel esteja nomeada como: <strong>Férias Legais</strong>.</p>

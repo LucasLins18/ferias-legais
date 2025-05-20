@@ -1,0 +1,24 @@
+<h2 class="mb-4">Editar Registro</h2>
+
+<form action="/atualizar/{{id}}" method="POST" class="row g-3">
+  <div class="col-md-6">
+    <label for="funcionario_rh" class="form-label">Funcionário RH</label>
+    <input type="text" class="form-control" id="funcionario_rh" name="funcionario_rh" value="{{funcionario_rh}}" required>
+  </div>
+  <div class="col-md-6">
+    <label for="funcionario_ferias" class="form-label">Funcionário de Férias</label>
+    <input type="text" class="form-control" id="funcionario_ferias" name="funcionario_ferias" value="{{funcionario_ferias}}" required>
+  </div>
+  <div class="col-md-6">
+    <label for="salario" class="form-label">Média Salário 12 meses (R$)</label>
+    <input type="number" class="form-control" id="salario" name="salario" value="{{salario}}" step="0.01" min="0.01" required>
+  </div>
+  <div class="col-md-6">
+    <label for="faltas" class="form-label">Faltas injustificadas</label>
+    <input type="number" class="form-control" id="faltas" name="faltas" value="{{faltas}}" min="0" required>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-warning">Atualizar</button>
+    <a href="/servicos" class="btn btn-secondary">Cancelar</a>
+  </div>
+</form>

@@ -1,0 +1,78 @@
+<section>
+  <h2 class="mb-4">Registros de Férias</h2>
+
+  <!-- Botões de ação -->
+  <div class="mb-3 d-flex flex-wrap gap-2">
+    <button class="btn btn-primary" onclick="baixarPDF()">📄 Baixar PDF</button>
+    <button class="btn btn-success" onclick="baixarExcel()">📊 Baixar Excel</button>
+    <a href="/importar" class="btn btn-secondary">📥 Importar Excel</a>
+    <a href="/cadastro" class="btn btn-outline-primary">➕ Novo Registro</a>
+  </div>
+
+  {{#if dados.length}}
+  <form action="/deletar-varios" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir os registros selecionados?')">
+    <div class="mb-2">
+      <button type="submit" class="btn btn-danger btn-sm">🗑️ Excluir Selecionados</button>
+    </div>
+
+    <table class="table table-bordered table-striped align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th><input type="checkbox" id="selectAll"></th>
+          <th>RH</th>
+          <th>Funcionário</th>
+          <th>Salário (R$)</th>
+          <th>Valor Férias (R$)</th>
+          <th>Dias</th>
+          <th>Data</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each dados}}
+        <tr>
+          <td><input type="checkbox" name="ids[]" value="{{id}}"></td>
+          <td>{{funcionario_rh}}</td>
+          <td>{{funcionario_ferias}}</td>
+          <td>{{salario}}</td>
+          <td>{{valorFerias}}</td>
+          <td>{{diasFerias}}</td>
+          <td>{{data}}</td>
+          <td>
+            <a href="/editar/{{id}}" class="btn btn-warning btn-sm">✏️</a>
+            <a href="/deletar/{{id}}" class="btn btn-danger btn-sm" onclick="return confirm('Excluir este registro?')">🗑️</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </form>
+  {{else}}
+    <p class="text-muted">Nenhum registro encontrado.</p>
+  {{/if}}
+</section>
+
+<script>
+function baixarPDF() {
+  window.open('/download', '_blank');
+}
+function baixarExcel() {
+  window.open('/download-excel', '_blank');
+}
+document.getElementById('selectAll')?.addEventListener('change', function () {
+  const checkboxes = document.querySelectorAll('input[name="ids[]"]');
+  checkboxes.forEach(cb => cb.checked = this.checked);
+});
+</script>
+
+  {{#if totalPages}}
+  <nav class="mt-4">
+    <ul class="pagination justify-content-center">
+      {{#each (range 1 totalPages)}}
+        <li class="page-item {{#if (eq this ../currentPage)}}active{{/if}}">
+          <a class="page-link" href="/servicos?page={{this}}">{{this}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
+  {{/if}}
